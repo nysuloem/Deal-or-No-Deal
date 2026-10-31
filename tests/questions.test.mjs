@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtempSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {FACT_QUESTIONS} from '../lib/questions.js';
+test('arithmetic generation is rejected and an exhausted factual bank never becomes a math fallback',async()=>{let dir=mkdtempSync(join(tmpdir(),'deal-facts-'));process.env.DATA_DIR=dir;const {db,nextQuestion,fingerprint}=await import('../server.mjs');const original=global.fetch,key=process.env.OPENAI_API_KEY;let calls=0;try{process.env.OPENAI_API_KEY='test-only';global.fetch=async()=>{calls++;return Response.json({choices:[{message:{content:JSON.stringify({question:'A robot takes 12 steps every minute. How many in 13 minutes?',answer:156,explanation:'Calculation',kind:'fact',requires_calculation:false})}}]})};let q=await nextQuestion({});assert.equal(calls,3);assert.equal(q.source,'Built-in');assert.ok(FACT_QUESTIONS.some(x=>x[0]===q.q[0]));delete process.env.OPENAI_API_KEY;for(const q of FACT_QUESTIONS)db.prepare('INSERT INTO questions VALUES(?,?,?,?,?,?,?)').run(fingerprint(q[0]),...q,'Built-in',Date.now(),'TEST01');await assert.rejects(()=>nextQuestion({}),e=>e.code==='FACTS_EXHAUSTED');}finally{global.fetch=original;if(key===undefined)delete process.env.OPENAI_API_KEY;else process.env.OPENAI_API_KEY=key;db.close();rmSync(dir,{recursive:true,force:true})}});
