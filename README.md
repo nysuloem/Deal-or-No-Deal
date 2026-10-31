@@ -71,3 +71,7 @@ Reveals now prefer footage showing the exact original amount where available: on
 Only contestants who actually opened a case in the current elimination round and have no existing deal can accept or decline its banker offer, including the final offer. A skipped opening does not qualify. All eligible declines close the offer immediately; if no opener is eligible, the game automatically continues. Deal holders still tap and eliminate.
 
 The host explains each procedure once per room, then uses shorter, varied commentary about the public board, contestants and leading deal. Explanation history persists with the room. The stage, ordinary banker and accepted-deal still backgrounds have been edited to remove the blue-shirt contestant while retaining the studio composition. Original archival video footage is unchanged.
+
+## Studio sound and native prize board
+
+Low-value elimination reveals ($1,000 or less) play the supplied applause recording at the moment the value appears. The original instrumental suspense loop plays only on the main studio display, ducks under narration and major effects, and follows the existing sound toggle. Phone controllers remain quiet. The stage prize board now retains the original photographed lettering and perspective; aligned dark masks mark eliminated amounts without replacing the original text. `scripts/create-suspense.py` reproduces the original music source (Python/NumPy, then MP3 encoding with ffmpeg).
