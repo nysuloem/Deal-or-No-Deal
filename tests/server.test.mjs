@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtempSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+const dir=mkdtempSync(join(tmpdir(),'deal-test-'));process.env.DATA_DIR=dir;delete process.env.OPENAI_API_KEY;
+const {server,db,repeats}=await import('../server.mjs');
+await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin=`http://127.0.0.1:${server.address().port}`;
+const h='host-session-123456789012345',p='player-session-123456789012345';
+const post=async(token,a)=>{let r=await fetch(origin+'/api/game',{method:'POST',headers:{'Content-Type':'application/json','X-Game-Token':token},body:JSON.stringify(a)});return {status:r.status,s:await r.json()}};
+test('rooms, authorization, global history and reload persistence',async()=>{assert.equal((await fetch(origin+'/health')).status,200);let one=(await post(h,{type:'create'})).s;let joined=(await post(p,{type:'join',code:one.code,name:'Player'})).s;assert.equal(joined.players.length,1);assert.equal((await post(p,{type:'challenge',code:one.code})).status,400);let ch=(await post(h,{type:'challenge',code:one.code})).s;assert.equal(ch.phase,'challenge');assert.equal(ch.question.length,1);assert.equal(db.prepare('SELECT count(*) AS n FROM questions').get().n,1);let two=(await post(h,{type:'create'})).s;await post(p,{type:'join',code:two.code,name:'Player'});let next=(await post(h,{type:'challenge',code:two.code})).s;assert.notEqual(next.question[0],ch.question[0]);assert.equal(db.prepare('SELECT count(*) AS n FROM questions').get().n,2);const {DatabaseSync}=await import('node:sqlite');let reopened=new DatabaseSync(join(dir,'game.sqlite'));assert.equal(reopened.prepare('SELECT count(*) AS n FROM questions').get().n,2);assert.equal(reopened.prepare('SELECT count(*) AS n FROM rooms').get().n,2);reopened.close();assert.ok(repeats('HOW many hearts does an octopus have?', ['How many hearts does an octopus have?']));assert.ok(repeats('An octopus has how many hearts?', ['How many hearts does an octopus have?']));let guess=await post(p,{type:'guess',code:one.code,round:ch.round,phase:'challenge',question:ch.question[0],value:2});assert.equal(guess.status,200);let dup=await post(p,{type:'guess',code:one.code,round:ch.round,phase:'challenge',question:ch.question[0],value:4});assert.equal(dup.status,400);});
+test.after(async()=>{await new Promise(r=>server.close(r));db.close();rmSync(dir,{recursive:true,force:true})});
