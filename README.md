@@ -87,3 +87,7 @@ Three additional supplied openings are trimmed to the model/case shot, without h
 ## Final deal and compact phone controls
 
 The game ends immediately when the final unsold contestant accepts a deal. The highest locked deal wins (ties share victory); no further challenges, eliminations, swaps or case reveals follow. If anyone remains unsold, the existing endgame continues. Lucky Tap countdown/status remains on phones only. Phone case-selection screens use compact instructions and a case grid without the tall stage panel. The Howie prompt now ends before the trailing crowd burst.
+
+## Opening a new game
+
+Opening the base website starts at the Create new room / Join room screen, without automatically restoring a saved browser room. Each Create new room action creates a fresh room code. Explicit `?room=...` links still reopen their named room so TV refreshes and player QR links reconnect correctly.
