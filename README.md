@@ -79,3 +79,7 @@ Low-value elimination reveals ($1,000 or less) play the supplied applause record
 ## Blue-dress reveal variety
 
 Three additional supplied openings are trimmed to the model/case shot, without host or contestant cutaways: $25, $50 and $300,000. These join the existing six clips and use the same amount/reaction matching. The stage uses thirteen blue dresses and thirteen red dresses while retaining case positions and the native prize board.
+
+## Case alignment and competitive commentary
+
+`lib/stage.js` maps every photographed case to its measured position, dimensions and model dress colour. Reveal selection always matches that colour, then prefers an exact original amount and a suitable reaction tier. The supplied blue clips currently cover only low and high prizes; medium prizes use the nearest blue clip until a medium-prize blue opening is supplied. Host commentary recognises that a deal holder wants high prizes eliminated, while unsold players benefit from low eliminations. Opener IDs persist through each reveal so the host addresses the correct player after the turn advances.

@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {STAGE_CASES,caseDress} from '../lib/stage.js';
+import {MONEY} from '../lib/game.js';
+import {REVEALS,selectReveal,reactionTier} from '../lib/reveals.js';
+import {hostLine} from '../lib/show.js';
+test('all 26 stage models keep dress continuity at every prize amount',()=>{assert.equal(STAGE_CASES.length,26);assert.equal(STAGE_CASES.filter(c=>c.dress==='blue').length,13);for(const stage of STAGE_CASES){for(const value of MONEY){const s={last:{n:stage.n,value}};for(let i=0;i<4;i++){const clip=selectReveal(s);assert.equal(clip.dress,caseDress(stage.n));const same=REVEALS.filter(c=>c.dress===stage.dress);if(same.some(c=>c.originalAmount===value))assert.equal(clip.originalAmount,value);else if(same.some(c=>reactionTier(c.originalAmount)===reactionTier(value)))assert.equal(reactionTier(clip.originalAmount),reactionTier(value));}}}});
+test('host roots for high eliminations by deal holders and low eliminations by unsold players',()=>{const locked={id:'locked',name:'Sam',deal:100000},unsold={id:'unsold',name:'Alex',deal:null};const s={phase:'eliminate',players:[locked,unsold],cases:[],queue:['locked'],turn:0};assert.match(hostLine(s),/100,000|BIG|big money/);s.phase='case_selected';s.pending={n:26,by:'Sam',playerId:'locked'};assert.match(hostLine(s),/BIG|big prize|rival/);s.phase='case_reveal';s.last={n:26,value:500000,by:'Sam',playerId:'locked'};assert.match(hostLine(s),/good news for their locked deal/);s.last.value=1;assert.match(hostLine(s),/hoping for something bigger/);s.last={n:26,value:500000,by:'Alex',playerId:'unsold'};assert.match(hostLine(s),/OUCH|big hit|wanted/);s.last.value=1;assert.match(hostLine(s),/YES|Beautiful|applause/);});
