@@ -57,3 +57,9 @@ The main display now fits a 16:9 HDTV frame with safe-margin player HUDs and no 
 Four edited case-opening clips rotate in a shuffled order before repeating. Only model/case footage is retained; the original case number and printed prize are replaced by the actual game number/value. No constructed-case scene precedes the video. Banker calls use a real ringing sound. The banker scene stays on screen through the offer; the price sits above the window and acceptance adds DEAL plus the accepting player’s name/photo. The trimmed Howie prompt plays immediately when the offer appears, with no intervening narration.
 
 The narrator uses a more energetic direction and pace. A new audio-cache version regenerates old lines in the new style. Deal-takers remain eligible for **all** question rounds and eliminations; only unsold players are eligible to accept offers or swap cases. Historical/demographic question prompts require a named date/season and geographic/counting convention. Arithmetic is filtered out and never used as fallback.
+
+## Visual corrections and reaction matching
+
+The ordinary banker scene is now the default. The accepted-deal image is used only after an actual acceptance. Choice and transition instruction cards are removed from the TV display; the phone still carries instructions and the studio retains its highlighted cases and active-player HUD. A compact Keep Case control remains available during swaps for single-device play.
+
+Reveals now prefer footage showing the exact original amount where available: one cent, $300, $10,000, $50,000, $200,000, and $500,000. Other amounts use footage from the same small/medium/large prize group, varying within that group. This matches the models' existing reactions without synthesizing or altering their expressions. The trivia selection mechanic is unchanged pending a replacement rule choice.
