@@ -91,3 +91,7 @@ The game ends immediately when the final unsold contestant accepts a deal. The h
 ## Opening a new game
 
 Opening the base website starts at the Create new room / Join room screen, without automatically restoring a saved browser room. Each Create new room action creates a fresh room code. Explicit `?room=...` links still reopen their named room so TV refreshes and player QR links reconnect correctly.
+
+## Reveal playback readiness
+
+Reveal clips preload on room entry. The close-up and its case/amount label appear together only after the browser presents a decoded video frame; the amount switches on the video playhead rather than a wall-clock timer. The two low-value blue clips also end before the contestant reaction cutaways.
