@@ -83,3 +83,7 @@ Three additional supplied openings are trimmed to the model/case shot, without h
 ## Case alignment and competitive commentary
 
 `lib/stage.js` maps every photographed case to its measured position, dimensions and model dress colour. Reveal selection always matches that colour, then prefers an exact original amount and a suitable reaction tier. The supplied blue clips currently cover only low and high prizes; medium prizes use the nearest blue clip until a medium-prize blue opening is supplied. Host commentary recognises that a deal holder wants high prizes eliminated, while unsold players benefit from low eliminations. Opener IDs persist through each reveal so the host addresses the correct player after the turn advances.
+
+## Final deal and compact phone controls
+
+The game ends immediately when the final unsold contestant accepts a deal. The highest locked deal wins (ties share victory); no further challenges, eliminations, swaps or case reveals follow. If anyone remains unsold, the existing endgame continues. Lucky Tap countdown/status remains on phones only. Phone case-selection screens use compact instructions and a case grid without the tall stage panel. The Howie prompt now ends before the trailing crowd burst.
