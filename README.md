@@ -65,3 +65,9 @@ The narrator uses a more energetic direction and pace. A new audio-cache version
 The ordinary banker scene is now the default. The accepted-deal image is used only after an actual acceptance. Choice and transition instruction cards are removed from the TV display; the phone still carries instructions and the studio retains its highlighted cases and active-player HUD. A compact Keep Case control remains available during swaps for single-device play.
 
 Reveals now prefer footage showing the exact original amount where available: one cent, $300, $10,000, $50,000, $200,000, and $500,000. Other amounts use footage from the same small/medium/large prize group, varying within that group. This matches the models' existing reactions without synthesizing or altering their expressions. Lucky Tap now replaces the trivia selection mechanic.
+
+## Round offers and host pacing
+
+Only contestants who actually opened a case in the current elimination round and have no existing deal can accept or decline its banker offer, including the final offer. A skipped opening does not qualify. All eligible declines close the offer immediately; if no opener is eligible, the game automatically continues. Deal holders still tap and eliminate.
+
+The host explains each procedure once per room, then uses shorter, varied commentary about the public board, contestants and leading deal. Explanation history persists with the room. The stage, ordinary banker and accepted-deal still backgrounds have been edited to remove the blue-shirt contestant while retaining the studio composition. Original archival video footage is unchanged.
