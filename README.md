@@ -75,3 +75,7 @@ The host explains each procedure once per room, then uses shorter, varied commen
 ## Studio sound and native prize board
 
 Low-value elimination reveals ($1,000 or less) play the supplied applause recording at the moment the value appears. The original instrumental suspense loop plays only on the main studio display, ducks under narration and major effects, and follows the existing sound toggle. Phone controllers remain quiet. The stage prize board now retains the original photographed lettering and perspective; aligned dark masks mark eliminated amounts without replacing the original text. `scripts/create-suspense.py` reproduces the original music source (Python/NumPy, then MP3 encoding with ffmpeg).
+
+## Blue-dress reveal variety
+
+Three additional supplied openings are trimmed to the model/case shot, without host or contestant cutaways: $25, $50 and $300,000. These join the existing six clips and use the same amount/reaction matching. The stage uses thirteen blue dresses and thirteen red dresses while retaining case positions and the native prize board.
