@@ -95,3 +95,9 @@ Opening the base website starts at the Create new room / Join room screen, witho
 ## Reveal playback readiness
 
 Reveal clips preload on room entry. The close-up and its case/amount label appear together only after the browser presents a decoded video frame; the amount switches on the video playhead rather than a wall-clock timer. The two low-value blue clips also end before the contestant reaction cutaways.
+
+## Tap reliability and counteroffers
+
+Phones synchronise challenge timing to the server clock and support pointer, touch and click input, with one independent locked tap per contestant. A tap within a radius of 10% of the board width earns a private peek.
+
+Each contestant may submit one counteroffer per game, while eligible for that round's banker offer. It must exceed the original offer and be at most $1,000,000. Submission consumes the attempt and pauses other offer actions while the banker considers it. The banker accepts counters within its conservative ceiling based on the remaining-board mean and current offer; acceptance locks the requested amount. Rejection restores the original offer with a fresh decision timer. The last accepted deal, including a counteroffer, ends the game when everyone has sold.
