@@ -86,7 +86,7 @@ Three additional supplied openings are trimmed to the model/case shot, without h
 
 ## Final deal and compact phone controls
 
-The game ends immediately when the final unsold contestant accepts a deal. The highest locked deal wins (ties share victory); no further challenges, eliminations, swaps or case reveals follow. If anyone remains unsold, the existing endgame continues. Lucky Tap countdown/status remains on phones only. Phone case-selection screens use compact instructions and a case grid without the tall stage panel. The Howie prompt now ends before the trailing crowd burst.
+When the final unsold contestant accepts a deal, the highest locked deal wins (ties share victory). No further challenges, eliminations or swaps follow. All contestants’ cases are then opened one by one for comparison with their deals, without changing the winner. If anyone remains unsold, the existing endgame continues. Lucky Tap countdown/status remains on phones only. Phone case-selection screens use compact instructions and a case grid without the tall stage panel. The Howie prompt now ends before the trailing crowd burst.
 
 ## Opening a new game
 
@@ -101,3 +101,7 @@ Reveal clips preload on room entry. The close-up and its case/amount label appea
 Phones synchronise challenge timing to the server clock and support pointer, touch and click input, with one independent locked tap per contestant. A tap within a radius of 10% of the board width earns a private peek.
 
 Each contestant may submit one counteroffer per game, while eligible for that round's banker offer. It must exceed the original offer and be at most $1,000,000. Submission consumes the attempt and pauses other offer actions while the banker considers it. The banker accepts counters within its conservative ceiling based on the remaining-board mean and current offer; acceptance locks the requested amount. Rejection restores the original offer with a fresh decision timer. The last accepted deal, including a counteroffer, ends the game when everyone has sold.
+
+## Closing sequence
+
+After the final case reveal and its narration finish, the supplied seven-second ending recording plays on the TV with the supplied Howie photograph and winning score. The one-cent opening has its initial host/contestant shot removed, and its reveal timing is adjusted for the trim.
